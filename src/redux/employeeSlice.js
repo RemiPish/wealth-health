@@ -1,10 +1,12 @@
 import { createSlice, createAction } from '@reduxjs/toolkit';
 
+//recupere les données depuis localStorage, retourne la table des données ou array vide
 const getEmployeesFromStorage = () => {
   const employees = localStorage.getItem('employees');
   return employees ? JSON.parse(employees) : [];
 };
 
+//etat initial 
 const initialState = {
   employees: getEmployeesFromStorage(),
 };
@@ -15,12 +17,11 @@ const employeeSlice = createSlice({
   name: 'employee',
   initialState,
   reducers: {
+    //ajout d'un employé dans la liste
     addEmployee: (state, action) => {
       const newEmployee = action.payload;
-      console.log("Adding employee:", newEmployee); // Debug log
       state.employees.push(newEmployee);
       localStorage.setItem('employees', JSON.stringify(state.employees));
-      console.log("Updated localStorage:", localStorage.getItem('employees'));
     },
 
   },

@@ -20,14 +20,15 @@ export default function Form({ onFormSubmit, employeeData }) {
     const [zipCode, setZipCode] = useState(employeeData.zipCode || '');
     const [department, setDepartment] = useState(employeeData.department || '');
 
+    //gestion message d'erreur de validation
     const [stateError, setStateError] = useState('');
     const [departmentError, setDepartmentError] = useState('');
     const [dateOfBirthError, setDateOfBirthError] = useState('');
     const [startDateError, setStartDateError] = useState('');
 
+    //validation des champs state, department, dateOfBirth, startDate
     const validateForm = () => {
         let isValid = true;
-        console.log("State: ", state, " Department: ", department);
         if (!state || state === " " || state === "Select a state") {
             setStateError("Please select a state.");
             isValid = false;
@@ -59,6 +60,7 @@ export default function Form({ onFormSubmit, employeeData }) {
         return isValid;
     };
 
+    //reset de formulaire après la soumission de l'utilisateur
     const initializeForm = () => {
         setFirstName('');
         setLastName('');
@@ -71,10 +73,11 @@ export default function Form({ onFormSubmit, employeeData }) {
         setStartDate('');
     }
 
+    //gere la soumission de l'utilisateur
     const handleSubmit = (e) => {
         e.preventDefault();
+        //validation avant soumission
         if (!validateForm()) {
-            console.log("Validation failed.");
             return;
         }
         onFormSubmit({
@@ -88,6 +91,7 @@ export default function Form({ onFormSubmit, employeeData }) {
             zipCode,
             department,
         });
+        //reset de formulaire
         initializeForm();
     };
 

@@ -3,7 +3,7 @@ import { useTable, useGlobalFilter, useSortBy, usePagination } from 'react-table
 import { useSelector } from 'react-redux';
 import './ViewEmployee.scss';
 
-// Optional: Component for global filtering
+// la barre de recherche de la table des données pour filtrer les données
 const GlobalFilter = ({ globalFilter, setGlobalFilter }) => {
     return (
         <span className='search-bar'>
@@ -18,8 +18,10 @@ const GlobalFilter = ({ globalFilter, setGlobalFilter }) => {
 };
 
 export default function ViewEmployee() {
+    //recupere les données de Redux store
     const employees = useSelector(state => state.employee.employees);
 
+    //definition des colonnes de la table
     const columns = useMemo(() => [
         { Header: 'First Name', accessor: 'firstName' },
         { Header: 'Last Name', accessor: 'lastName' },
@@ -41,7 +43,7 @@ export default function ViewEmployee() {
         setGlobalFilter,
         canPreviousPage,
         canNextPage,
-        pageOptions,
+        pageOptions,    
         nextPage,
         previousPage,
         setPageSize,

@@ -8,14 +8,17 @@ import Modal from 'react-modal'
 
 Modal.setAppElement('#root');
 export default function CreateEmployee() {
+    //gere l'état de la modal a la fin de soumission
     const [modalIsOpen, setIsOpen] = useState(false);
     const dispatch = useDispatch();
 
+    //gere la soumission du formulaire quand c'est reussi
     const handleFormSubmit = (employee) => {
-        dispatch(addEmployee(employee));
-        setIsOpen(true);
+        dispatch(addEmployee(employee)); //dispatch l'action addEmployee avec les données du formulaire
+        setIsOpen(true); //ouvre la modale
     };
 
+    //gere l'état de fermeture de la modale
     const closeModal = () => {
         setIsOpen(false);
     };

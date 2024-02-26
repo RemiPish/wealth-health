@@ -2,11 +2,11 @@ import PropTypes from "prop-types";
 import './FieldInput.scss'
 
 export default function FieldInput({
-  type,
+  type, //type de input (text, number)
   name,
   labelTitle,
   value,
-  setInput
+  setInput //fonction qui permet de mettre à jour la valeur du input
 }) {
   return (
     <div className="label">
@@ -24,15 +24,17 @@ export default function FieldInput({
   );
 }
 
+//on utilise propType pour valider les types de valeurs
 FieldInput.propTypes = {
-  type: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired, //valeur requise
+  name: PropTypes.string.isRequired,//valeur requise
   labelTitle: PropTypes.string,
-  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-  setInput: PropTypes.func.isRequired,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired, //valeur requise
+  setInput: PropTypes.func.isRequired, //valeur requise
   className: PropTypes.string,
 };
 
+//valeurs par defaut si on ne definit pas les valeurs
 FieldInput.defaultProps = {
   className: "",
   labelTitle: "",
