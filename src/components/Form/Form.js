@@ -114,7 +114,7 @@ export default function Form({ onFormSubmit, employeeData }) {
                 />
 
                 <div className="label">
-                    <p class="title">Birth Date:</p>
+                    <p className="title">Birth Date:</p>
                     <Datepicker
                         label="Birth Date"
                         value={dateOfBirth}
@@ -123,7 +123,7 @@ export default function Form({ onFormSubmit, employeeData }) {
                     {dateOfBirthError && <div className="error-message">{dateOfBirthError}</div>}
                 </div>
                 <div className="label">
-                    <p class="title">Start Date:</p>
+                    <p className="title">Start Date:</p>
                     <Datepicker
                         label="Start Date"
                         value={startDate}

@@ -20,7 +20,7 @@ const Dropdown = ({ label, options, value, onChange, id }) => {
 
     return (
         <div className="dropdown">
-            {label && <p class="title">{label}</p>}
+            {label && <p className="title">{label}</p>}
             <Select
                 inputId={id}
                 value={selectedOption}

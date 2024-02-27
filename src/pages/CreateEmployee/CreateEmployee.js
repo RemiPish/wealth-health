@@ -15,6 +15,7 @@ export default function CreateEmployee() {
     //gere la soumission du formulaire quand c'est reussi
     const handleFormSubmit = (employee) => {
         dispatch(addEmployee(employee)); //dispatch l'action addEmployee avec les données du formulaire
+        console.log('modal')
         setIsOpen(true); //ouvre la modale
     };
 
@@ -29,7 +30,7 @@ export default function CreateEmployee() {
                 <h1>HRnet</h1>
             </div>
             <div className="container">
-                <h2 class="subtitle">Create Employee</h2>
+                <h2 className="subtitle">Create Employee</h2>
                 <Form onFormSubmit={handleFormSubmit} employeeData={{}} />
                 <Modal
                     isOpen={modalIsOpen}
